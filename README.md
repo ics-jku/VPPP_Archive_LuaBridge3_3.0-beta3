@@ -1,3 +1,69 @@
+# Archived version of LuaBridge3 Tag 3.0-beta2 (original Tag is broken) for RISC-V VP++
+
+The original "3.0-beta3" Tag (https://github.com/kunitoki/LuaBridge3/tree/3.0-beta3) has a broken reference to submodule ThirdParty/googletest.
+
+This archived version directly integrates the code for the submodules:
+ * ThirdParty/googletest
+   https://github.com/kunitoki/googletest.git
+   b996fc911bf2df225e1b3a66e3da195c8326ee0d googletest (release-1.8.0-2867-gb996fc91)
+ * ThirdParty/luau
+   https://github.com/kunitoki/luau.git
+   7257f34d89fddfefeedc70cc2023a29851d6d517 luau (0.506-1-g7257f34)
+
+## Background
+see also https://github.com/kunitoki/LuaBridge3/issues/203
+
+Tag 3.0-beta3 uses
+https://github.com/kunitoki/googletest.git
+b996fc911bf2df225e1b3a66e3da195c8326ee0d
+as submodule ThirdParty/googletest
+
+However, commit b996fc911bf2df225e1b3a66e3da195c8326ee0d does not (or no longer) exist in https://github.com/kunitoki/googletest.git
+
+```
+$ git clone --recursive https://github.com/kunitoki/LuaBridge3.git --branch 3.0-beta3
+Cloning into 'LuaBridge3'...
+remote: Enumerating objects: 7391, done.
+remote: Counting objects: 100% (526/526), done.
+remote: Compressing objects: 100% (121/121), done.
+remote: Total 7391 (delta 471), reused 406 (delta 403), pack-reused 6865 (from 2)
+Receiving objects: 100% (7391/7391), 4.41 MiB | 16.01 MiB/s, done.
+Resolving deltas: 100% (4640/4640), done.
+Note: switching to '1ddef3950485f10f32500edabe20198f3d90c8b9'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Submodule 'ThirdParty/googletest' (https://github.com/kunitoki/googletest.git) registered for path 'ThirdParty/googletest'
+Submodule 'ThirdParty/luau' (https://github.com/kunitoki/luau.git) registered for path 'ThirdParty/luau'
+Cloning into '/home/ame/tmp/LUA_TEST/LuaBridge3/ThirdParty/googletest'...
+remote: Enumerating objects: 26980, done.        
+remote: Total 26980 (delta 0), reused 0 (delta 0), pack-reused 26980 (from 1)        
+Receiving objects: 100% (26980/26980), 12.41 MiB | 31.07 MiB/s, done.
+Resolving deltas: 100% (20052/20052), done.
+Cloning into '/home/ame/tmp/LUA_TEST/LuaBridge3/ThirdParty/luau'...
+remote: Enumerating objects: 2327, done.        
+remote: Total 2327 (delta 0), reused 0 (delta 0), pack-reused 2327 (from 1)        
+Receiving objects: 100% (2327/2327), 6.71 MiB | 28.99 MiB/s, done.
+Resolving deltas: 100% (1301/1301), done.
+fatal: remote error: upload-pack: not our ref b996fc911bf2df225e1b3a66e3da195c8326ee0d
+fatal: Fetched in submodule path 'ThirdParty/googletest', but it did not contain b996fc911bf2df225e1b3a66e3da195c8326ee0d. Direct fetching of that commit failed.
+```
+
+# Original README
+
 <a href="https://kunitoki.github.io/LuaBridge3">
 <img src="https://github.com/kunitoki/LuaBridge3/blob/master/logo.png?raw=true">
 </a>
